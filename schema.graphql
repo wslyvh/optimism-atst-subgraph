@@ -3,7 +3,9 @@ type Attestation @entity(immutable: true) {
   creator: Bytes! # address
   receiver: Bytes! # address
   key: Bytes! # bytes32
-  value: Bytes! # bytes
+  keyString: String!
+  val: Bytes! # bytes
+  value: String!
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!

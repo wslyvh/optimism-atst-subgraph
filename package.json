@@ -2,7 +2,7 @@
   "name": "optimism-atst",
   "license": "MIT",
   "scripts": {
-    "initialize":"graph init --studio optimism-atst",
+    "initialize": "graph init --studio optimism-atst",
     "codegen": "graph codegen",
     "build": "graph build",
     "deploy": "graph deploy --product hosted-service wslyvh/optimism-atst",
@@ -12,8 +12,11 @@
     "test": "graph test"
   },
   "dependencies": {
+    "@ethersproject/strings": "^5.7.0",
     "@graphprotocol/graph-cli": "0.42.4",
     "@graphprotocol/graph-ts": "0.29.1"
   },
-  "devDependencies": { "matchstick-as": "0.5.0" }
+  "devDependencies": {
+    "matchstick-as": "0.5.0"
+  }
 }
