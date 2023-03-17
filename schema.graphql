@@ -5,7 +5,7 @@ type Attestation @entity(immutable: true) {
   key: Bytes! # bytes32
   keyString: String!
   val: Bytes! # bytes
-  value: String!
+  valueString: String!
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!

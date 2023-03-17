@@ -11,7 +11,7 @@ export function handleAttestationCreated(event: AttestationCreatedEvent): void {
   entity.key = event.params.key
   entity.keyString = event.params.key.toString()
   entity.val = event.params.val
-  entity.value = event.params.val.toString()
+  entity.valueString = event.params.val.toString()
 
   entity.blockNumber = event.block.number
   entity.blockTimestamp = event.block.timestamp

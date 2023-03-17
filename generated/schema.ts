@@ -89,13 +89,13 @@ export class Attestation extends Entity {
     this.set("val", Value.fromBytes(value));
   }
 
-  get value(): string {
-    let value = this.get("value");
+  get valueString(): string {
+    let value = this.get("valueString");
     return value!.toString();
   }
 
-  set value(value: string) {
-    this.set("value", Value.fromString(value));
+  set valueString(value: string) {
+    this.set("valueString", Value.fromString(value));
   }
 
   get blockNumber(): BigInt {
