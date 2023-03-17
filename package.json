@@ -1,0 +1,19 @@
+{
+  "name": "optimism-atst",
+  "license": "MIT",
+  "scripts": {
+    "initialize":"graph init --studio optimism-atst",
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --product hosted-service wslyvh/optimism-atst",
+    "create-local": "graph create --node http://localhost:8020/ optimism-atst",
+    "remove-local": "graph remove --node http://localhost:8020/ optimism-atst",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 optimism-atst",
+    "test": "graph test"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.42.4",
+    "@graphprotocol/graph-ts": "0.29.1"
+  },
+  "devDependencies": { "matchstick-as": "0.5.0" }
+}

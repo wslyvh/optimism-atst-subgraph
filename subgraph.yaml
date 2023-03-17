@@ -1,0 +1,24 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: AttestationStation
+    network: optimism
+    source:
+      address: "0xEE36eaaD94d1Cc1d0eccaDb55C38bFfB6Be06C77"
+      abi: AttestationStation
+      startBlock: 70643992
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Attestation
+      abis:
+        - name: AttestationStation
+          file: ./abis/AttestationStation.json
+      eventHandlers:
+        - event: AttestationCreated(indexed address,indexed address,indexed bytes32,bytes)
+          handler: handleAttestationCreated
+      file: ./src/attestation-station.ts
