@@ -1,5 +1,6 @@
 import { AttestationCreated as AttestationCreatedEvent } from "../generated/AttestationStation/AttestationStation";
 import { Attestation, Global } from "../generated/schema";
+import { BigInt } from "@graphprotocol/graph-ts";
 import { integer } from "@protofire/subgraph-toolkit";
 
 const globalkey = "global";
@@ -12,6 +13,7 @@ export function handleAttestationCreated(event: AttestationCreatedEvent): void {
   let global = Global.load(globalkey);
   if (global == null) {
     global = new Global(globalkey);
+    global.attestations = BigInt.zero();
   }
 
   // zero indexed
