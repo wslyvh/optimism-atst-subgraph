@@ -12,7 +12,25 @@ type Attestation @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
+type Creator @entity {
+  id: ID! # address
+  count: BigInt!
+}
+
+type CreatorKey @entity {
+  id: ID! # address + bytes32
+  count: BigInt!
+}
+
+type Receiver @entity {
+  id: ID! # address
+  count: BigInt!
+}
+
 type Global @entity {
   id: ID!
   attestations: BigInt!
+  creators: BigInt!
+  creatorKeys: BigInt!
+  receivers: BigInt!
 }

@@ -135,6 +135,129 @@ export class Attestation extends Entity {
   }
 }
 
+export class Creator extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save Creator entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        `Entities of type Creator must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set("Creator", id.toString(), this);
+    }
+  }
+
+  static load(id: string): Creator | null {
+    return changetype<Creator | null>(store.get("Creator", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get count(): BigInt {
+    let value = this.get("count");
+    return value!.toBigInt();
+  }
+
+  set count(value: BigInt) {
+    this.set("count", Value.fromBigInt(value));
+  }
+}
+
+export class CreatorKey extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save CreatorKey entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        `Entities of type CreatorKey must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set("CreatorKey", id.toString(), this);
+    }
+  }
+
+  static load(id: string): CreatorKey | null {
+    return changetype<CreatorKey | null>(store.get("CreatorKey", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get count(): BigInt {
+    let value = this.get("count");
+    return value!.toBigInt();
+  }
+
+  set count(value: BigInt) {
+    this.set("count", Value.fromBigInt(value));
+  }
+}
+
+export class Receiver extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save Receiver entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        `Entities of type Receiver must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set("Receiver", id.toString(), this);
+    }
+  }
+
+  static load(id: string): Receiver | null {
+    return changetype<Receiver | null>(store.get("Receiver", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get count(): BigInt {
+    let value = this.get("count");
+    return value!.toBigInt();
+  }
+
+  set count(value: BigInt) {
+    this.set("count", Value.fromBigInt(value));
+  }
+}
+
 export class Global extends Entity {
   constructor(id: string) {
     super();
@@ -173,5 +296,32 @@ export class Global extends Entity {
 
   set attestations(value: BigInt) {
     this.set("attestations", Value.fromBigInt(value));
+  }
+
+  get creators(): BigInt {
+    let value = this.get("creators");
+    return value!.toBigInt();
+  }
+
+  set creators(value: BigInt) {
+    this.set("creators", Value.fromBigInt(value));
+  }
+
+  get creatorKeys(): BigInt {
+    let value = this.get("creatorKeys");
+    return value!.toBigInt();
+  }
+
+  set creatorKeys(value: BigInt) {
+    this.set("creatorKeys", Value.fromBigInt(value));
+  }
+
+  get receivers(): BigInt {
+    let value = this.get("receivers");
+    return value!.toBigInt();
+  }
+
+  set receivers(value: BigInt) {
+    this.set("receivers", Value.fromBigInt(value));
   }
 }
